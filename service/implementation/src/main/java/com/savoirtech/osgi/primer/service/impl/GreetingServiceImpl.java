@@ -7,7 +7,7 @@ public class GreetingServiceImpl implements GreetingService {
 // Fields
 //----------------------------------------------------------------------------------------------------------------------
 
-    private String greetingPattern  = "Hello, %s!";
+    private String greetingPattern;
 
 //----------------------------------------------------------------------------------------------------------------------
 // GreetingService Implementation

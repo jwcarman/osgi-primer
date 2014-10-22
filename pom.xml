@@ -13,7 +13,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+
+        <junit.version>4.11</junit.version>
+        <log4j.version>1.2.17</log4j.version>
         <osgi.version>4.3.1</osgi.version>
+        <pax.exam.version>4.2.0</pax.exam.version>
+        <slf4j.version>1.7.7</slf4j.version>
+
 
         <osgi.export>{local-packages};-split-package:=error</osgi.export>
         <osgi.import>*</osgi.import>
@@ -31,7 +37,27 @@
         <module>activator</module>
         <module>service</module>
         <module>aetos</module>
+        <module>testing</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
