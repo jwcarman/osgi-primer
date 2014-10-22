@@ -85,7 +85,7 @@ public class PrimerFeaturesIT extends Assert {
                 keepRuntimeFolder(),
                 configureConsole().ignoreLocalConsole(),
                 logLevel(LogLevelOption.LogLevel.WARN),
-                features(maven().groupId("com.savoirtech.osgi.primer").artifactId("aetos").version("1.0.0-SNAPSHOT").type("xml").classifier("features"), "primer-service"));
+                features(maven().groupId("com.savoirtech.osgi.primer").artifactId("aetos").version("1.0.0-SNAPSHOT").type("xml").classifier("features"), "primer-debug", "primer-service"));
     }
 
     protected void echoOutput(String command) {

@@ -8,6 +8,7 @@ public class OsgiDebugger {
 //----------------------------------------------------------------------------------------------------------------------
 
     private final DebugBundleListener bundleListener = new DebugBundleListener();
+    private final DebugServiceListener serviceListener = new DebugServiceListener();
     private BundleContext bundleContext;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -24,9 +25,11 @@ public class OsgiDebugger {
 
     public void initialize() {
         bundleContext.addBundleListener(bundleListener);
+        //bundleContext.addServiceListener(serviceListener);
     }
 
     public void shutdown() {
         bundleContext.removeBundleListener(bundleListener);
+        //bundleContext.removeServiceListener(serviceListener);
     }
 }
