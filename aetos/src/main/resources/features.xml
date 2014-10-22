@@ -1,0 +1,13 @@
+<features name="com.savoirtech.osgi.primer-${project.version}">
+
+    <feature name="primer-debug" version="${project.version}">
+        <bundle>mvn:${project.groupId}/debug/${project.version}</bundle>
+    </feature>
+
+    <feature name="primer-service" version="${project.version}">
+        <bundle>mvn:${project.groupId}/service-api/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/service-impl/${project.version}</bundle>
+        <bundle>mvn:${project.groupId}/service-consumer/${project.version}</bundle>
+    </feature>
+
+</features>

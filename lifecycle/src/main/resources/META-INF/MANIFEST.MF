@@ -1,3 +1,0 @@
-Bundle-SymbolicName: com.savoirtech.osgi.primer.lifecycle
-Bundle-Activator: com.savoirtech.osgi.primer.lifecycle.LifecycleActivator
-Import-Package: org.osgi.framework;version="[1.0,2)"
