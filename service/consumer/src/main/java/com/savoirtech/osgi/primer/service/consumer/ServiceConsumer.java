@@ -1,14 +1,18 @@
 package com.savoirtech.osgi.primer.service.consumer;
 
-import com.savoirtech.osgi.primer.service.api.GreetingService;
-
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.savoirtech.osgi.primer.service.api.GreetingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ServiceConsumer {
 //----------------------------------------------------------------------------------------------------------------------
 // Fields
 //----------------------------------------------------------------------------------------------------------------------
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceConsumer.class);
 
     private GreetingService greetingService;
     private Timer timer;
@@ -44,12 +48,16 @@ public class ServiceConsumer {
 //----------------------------------------------------------------------------------------------------------------------
 
     private class PrintGreetingTask extends TimerTask {
+//----------------------------------------------------------------------------------------------------------------------
+// Runnable Implementation
+//----------------------------------------------------------------------------------------------------------------------
+
         @Override
         public void run() {
             try {
-                System.out.println(greetingService.greet("OSGi"));
+                LOGGER.info(greetingService.greet("OSGi"));
             } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
+                LOGGER.error("Unable to call GreetingService: {}", e.getMessage(), e);
             }
         }
     }

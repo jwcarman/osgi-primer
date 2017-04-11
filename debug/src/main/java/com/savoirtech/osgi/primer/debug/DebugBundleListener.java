@@ -2,44 +2,47 @@ package com.savoirtech.osgi.primer.debug;
 
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DebugBundleListener implements BundleListener {
 //----------------------------------------------------------------------------------------------------------------------
 // BundleListener Implementation
 //----------------------------------------------------------------------------------------------------------------------
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(DebugBundleListener.class);
+    
     @Override
     public void bundleChanged(BundleEvent event) {
         switch (event.getType()) {
             case BundleEvent.INSTALLED:
-                System.out.println(String.format("[%s] Installed", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Installed", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.RESOLVED:
-                System.out.println(String.format("[%s] Resolved", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Resolved", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.STARTED:
-                System.out.println(String.format("[%s] Started", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Started", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.STARTING:
-                System.out.println(String.format("[%s] Starting", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Starting", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.STOPPED:
-                System.out.println(String.format("[%s] Stopped", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Stopped", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.STOPPING:
-                System.out.println(String.format("[%s] Stopping", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Stopping", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.UNINSTALLED:
-                System.out.println(String.format("[%s] Uninstalled", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Uninstalled", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.UNRESOLVED:
-                System.out.println(String.format("[%s] Unresolved", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Unresolved", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.UPDATED:
-                System.out.println(String.format("[%s] Updated", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Updated", event.getBundle().getSymbolicName());;
                 break;
             case BundleEvent.LAZY_ACTIVATION:
-                System.out.println(String.format("[%s] Lazy Activation", event.getBundle().getSymbolicName()));
+                LOGGER.info("[{}] Lazy Activation", event.getBundle().getSymbolicName());;
                 break;
         }
     }

@@ -1,14 +1,27 @@
 package com.savoirtech.osgi.primer.debug;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
-
-import java.util.Arrays;
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DebugServiceListener implements ServiceListener {
+//----------------------------------------------------------------------------------------------------------------------
+// Fields
+//----------------------------------------------------------------------------------------------------------------------
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DebugServiceListener.class);
+
+//----------------------------------------------------------------------------------------------------------------------
+// ServiceListener Implementation
+//----------------------------------------------------------------------------------------------------------------------
+
+    
     @Override
     public void serviceChanged(ServiceEvent event) {
         final ServiceReference<?> reference = event.getServiceReference();
@@ -17,13 +30,13 @@ public class DebugServiceListener implements ServiceListener {
         final List<String> serviceInterfaceNames = Arrays.asList(objectclass);
         switch (event.getType()) {
             case ServiceEvent.REGISTERED:
-                System.out.printf("[%s] Registered a %s service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
+                LOGGER.info("[{}] Registered a {} service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
                 break;
             case ServiceEvent.UNREGISTERING:
-                System.out.printf("[%s] Unregistering a %s service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
+                LOGGER.info("[{}] Unregistering a {} service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
                 break;
             case ServiceEvent.MODIFIED:
-                System.out.printf("[%s] Modified a %s service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
+                LOGGER.info("[{}] Modified a {} service.\n", bundle.getSymbolicName(), serviceInterfaceNames);
                 break;
         }
     }

@@ -25,11 +25,11 @@ public class OsgiDebugger {
 
     public void initialize() {
         bundleContext.addBundleListener(bundleListener);
-        //bundleContext.addServiceListener(serviceListener);
+        bundleContext.addServiceListener(serviceListener);
     }
 
     public void shutdown() {
         bundleContext.removeBundleListener(bundleListener);
-        //bundleContext.removeServiceListener(serviceListener);
+        bundleContext.removeServiceListener(serviceListener);
     }
 }
