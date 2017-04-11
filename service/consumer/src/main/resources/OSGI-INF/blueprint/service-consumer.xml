@@ -13,6 +13,6 @@
         <property name="greetingService" ref="greetingService"/>
     </bean>
 
-    <reference id="greetingService" interface="com.savoirtech.osgi.primer.service.api.GreetingService"/>
+    <reference id="greetingService" interface="com.savoirtech.osgi.primer.service.api.GreetingService" timeout="10000"/>
 
 </blueprint>
